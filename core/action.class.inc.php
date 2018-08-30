@@ -168,7 +168,18 @@ class ActionEmail extends ActionNotification
 //		MetaModel::Init_SetZListItems('advanced_search', array('name')); // Criteria of the advanced search form
 	}
 
-	// count the recipients found
+    public function DisplayBareRelations(WebPage $oPage, $bEditMode = false)
+    {
+        $oPage->add_ready_script(
+            <<<EOF
+CKEDITOR.config.plugins += ',codemirror';
+CKEDITOR.config.codemirror_theme = 'monokai';
+EOF
+        );
+        parent::DisplayBareRelations($oPage, $bEditMode);
+    }
+
+    // count the recipients found
 	protected $m_iRecipients;
 
 	// Errors management : not that simple because we need that function to be
