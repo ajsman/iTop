@@ -286,6 +286,40 @@ Dict::Add('RU RU', 'Russian', 'Русский', array(
 ));
 
 //
+// Class: EmailRecipients
+//
+Dict::Add('RU RU', 'Russian', 'Русский', array(
+    'Class:EmailRecipients' => 'Получатели',
+    'Class:EmailRecipients+' => 'Получатели email уведомлений',
+    'Class:EmailRecipients/Attribute:name' => 'Название',
+    'Class:EmailRecipients/Attribute:name+' => 'Название',
+    'Class:EmailRecipients/Attribute:description' => 'Описание',
+    'Class:EmailRecipients/Attribute:description+' => 'Описание',
+    'Class:EmailRecipients/Attribute:oql' => 'OQL Запрос',
+    'Class:EmailRecipients/Attribute:oql+' => 'OQL Запрос',
+));
+
+//
+// Class: lnkEmailRecipientsToActionEmail
+//
+Dict::Add('RU RU', 'Russian', 'Русский', array(
+    'Class:lnkEmailRecipientsToActionEmail' => 'Получатели email уведомлений/Действие',
+    'Class:lnkEmailRecipientsToActionEmail+' => 'Связь между Получателями email уведомлений и Действием',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:emailrecipients_id' => 'Получатели',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:emailrecipients_id+' => 'Получатели',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:action_id' => 'Действие',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:action_id+' => 'Действие',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type' => 'Тип поля',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type+' => 'Тип поля',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:to' => 'Кому',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:to+' => 'Получатели уведомлений',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:cc' => 'Копия',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:cc+' => '',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:bcc' => 'Скр. копия',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:bcc+' => '',
+));
+
+//
 // String from the User Interface: menu, messages, buttons, etc...
 //
 
@@ -915,7 +949,9 @@ Dict::Add('RU RU', 'Russian', 'Русский', array(
 	'UI:NotificationsMenu:OnStateEnter' => 'При входе объекта в заданное состояние',
 	'UI:NotificationsMenu:OnStateLeave' => 'При выходе объекта из заданного состояния',
 	'UI:NotificationsMenu:Actions' => 'Действия',
+	'UI:NotificationsMenu:EmailRecipients' => 'Получатели',
 	'UI:NotificationsMenu:AvailableActions' => 'Доступные действия',
+	'UI:NotificationsMenu:AvailableEmailRecipients' => 'Доступные получатели',
 
 	'Menu:AuditCategories' => 'Категории аудита', // Duplicated into itop-welcome-itil (will be removed from here...)
 	'Menu:AuditCategories+' => 'Категории аудита', // Duplicated into itop-welcome-itil (will be removed from here...)

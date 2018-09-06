@@ -314,6 +314,40 @@ Dict::Add('EN US', 'English', 'English', array(
 ));
 
 //
+// Class: EmailRecipients
+//
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:EmailRecipients' => 'Email recipients',
+    'Class:EmailRecipients+' => 'Email recipients',
+    'Class:EmailRecipients/Attribute:name' => 'Name',
+    'Class:EmailRecipients/Attribute:name+' => 'Identifies the query',
+    'Class:EmailRecipients/Attribute:description' => 'Description',
+    'Class:EmailRecipients/Attribute:description+' => 'Description',
+    'Class:EmailRecipients/Attribute:oql' => 'OQL Query',
+    'Class:EmailRecipients/Attribute:oql+' => 'OQL Query',
+));
+
+//
+// Class: lnkEmailRecipientsToActionEmail
+//
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:lnkEmailRecipientsToActionEmail' => 'EmailRecipients/Action',
+    'Class:lnkEmailRecipientsToActionEmail+' => 'Link between a email recipients and an action',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:emailrecipients_id' => 'Email recipients',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:emailrecipients_id+' => 'Email recipients',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:action_id' => 'Action','Class:Action/Attribute:emailrecipients_list' => 'Получатели уведомлений',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:action_id+' => 'Action',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type' => 'Field type',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type+' => 'Field type',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:to' => 'To',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:to+' => 'Destination of the email',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:cc' => 'Cc',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:cc+' => '',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:bcc' => 'Bcc',
+    'Class:lnkEmailRecipientsToActionEmail/Attribute:field_type/Value:bcc+' => '',
+));
+
+//
 // Expression to Natural language
 //
 Dict::Add('EN US', 'English', 'English', array(
@@ -956,7 +990,9 @@ When associated with a trigger, each action is given an "order" number, specifyi
 	'UI:NotificationsMenu:OnStateLeave' => 'When an object leaves a given state',
 	'UI:NotificationsMenu:Actions' => 'Actions',
 	'UI:NotificationsMenu:AvailableActions' => 'Available actions',
-	
+    'UI:NotificationsMenu:EmailRecipients' => 'Email recipients',
+	'UI:NotificationsMenu:AvailableEmailRecipients' => 'Available email recipients',
+
 	'Menu:AuditCategories' => 'Audit Categories', // Duplicated into itop-welcome-itil (will be removed from here...)
 	'Menu:AuditCategories+' => 'Audit Categories', // Duplicated into itop-welcome-itil (will be removed from here...)
 	'Menu:Notifications:Title' => 'Audit Categories', // Duplicated into itop-welcome-itil (will be removed from here...)

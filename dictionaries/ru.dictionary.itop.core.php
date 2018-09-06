@@ -484,6 +484,8 @@ Dict::Add('RU RU', 'Russian', 'Русский', array(
 	'Class:ActionEmail/Attribute:importance/Value:normal+' => 'Нормальная',
 	'Class:ActionEmail/Attribute:importance/Value:high' => 'Высокая',
 	'Class:ActionEmail/Attribute:importance/Value:high+' => 'Высокая',
+    'Class:ActionEmail/Attribute:emailrecipients_list' => 'Получатели уведомлений',
+    'Class:ActionEmail/Attribute:emailrecipients_list+' => 'Получатели email уведомлений',
 ));
 
 //

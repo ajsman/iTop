@@ -27,6 +27,7 @@ MetaModel::IncludeModule('setup/moduleinstallation.class.inc.php');
 MetaModel::IncludeModule('core/event.class.inc.php');
 MetaModel::IncludeModule('core/action.class.inc.php');
 MetaModel::IncludeModule('core/trigger.class.inc.php');
+MetaModel::IncludeModule('core/emailrecipients.class.inc.php');
 MetaModel::IncludeModule('core/bulkexport.class.inc.php');
 MetaModel::IncludeModule('core/ownershiplock.class.inc.php');
 MetaModel::IncludeModule('core/tagfield.class.inc.php');

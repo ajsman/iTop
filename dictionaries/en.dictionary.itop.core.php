@@ -499,6 +499,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:ActionEmail/Attribute:importance/Value:normal+' => 'normal',
 	'Class:ActionEmail/Attribute:importance/Value:high' => 'high',
 	'Class:ActionEmail/Attribute:importance/Value:high+' => 'high',
+    'Class:ActionEmail/Attribute:emailrecipients_list+' => 'Email recipients',
+    'Class:ActionEmail/Attribute:emailrecipients_list' => '',
 ));
 
 //

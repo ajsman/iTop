@@ -100,6 +100,19 @@ foreach($aActionClasses as $sActionClass)
 	$iBlock++;
 }
 
+//Email recipients start
+
+$oP->SetCurrentTab(Dict::S('UI:NotificationsMenu:EmailRecipients'));
+
+$oP->add('<h2>'.Dict::S('UI:NotificationsMenu:AvailableEmailRecipients').'</h2>');
+$oFilter = new DBObjectSearch('EmailRecipients');
+$aParams = array();
+$oBlock = new DisplayBlock($oFilter, 'list', false, $aParams);
+$oBlock->Display($oP, 'block_email_recipients', $aParams);
+
+
+// /Email recipients end
+
 $oP->SetCurrentTab('');
 $oP->SetCurrentTabContainer('');
 
