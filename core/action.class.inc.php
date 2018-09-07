@@ -153,16 +153,13 @@ class ActionEmail extends ActionNotification
 
 		MetaModel::Init_AddAttribute(new AttributeString("from", array("allowed_values"=>null, "sql"=>"from", "default_value"=>null, "is_null_allowed"=>false, "depends_on"=>array())));
 		MetaModel::Init_AddAttribute(new AttributeString("reply_to", array("allowed_values"=>null, "sql"=>"reply_to", "default_value"=>null, "is_null_allowed"=>true, "depends_on"=>array())));
-//		MetaModel::Init_AddAttribute(new AttributeOQL("to", array("allowed_values"=>null, "sql"=>"to", "default_value"=>null, "is_null_allowed"=>true, "depends_on"=>array())));
-//		MetaModel::Init_AddAttribute(new AttributeOQL("cc", array("allowed_values"=>null, "sql"=>"cc", "default_value"=>null, "is_null_allowed"=>true, "depends_on"=>array())));
-//		MetaModel::Init_AddAttribute(new AttributeOQL("bcc", array("allowed_values"=>null, "sql"=>"bcc", "default_value"=>null, "is_null_allowed"=>true, "depends_on"=>array())));
 		MetaModel::Init_AddAttribute(new AttributeTemplateString("subject", array("allowed_values"=>null, "sql"=>"subject", "default_value"=>null, "is_null_allowed"=>false, "depends_on"=>array())));
 		MetaModel::Init_AddAttribute(new AttributeTemplateHTML("body", array("allowed_values"=>null, "sql"=>"body", "default_value"=>null, "is_null_allowed"=>false, "depends_on"=>array())));
 		MetaModel::Init_AddAttribute(new AttributeEnum("importance", array("allowed_values"=>new ValueSetEnum('low,normal,high'), "sql"=>"importance", "default_value"=>'normal', "is_null_allowed"=>false, "depends_on"=>array())));
         MetaModel::Init_AddAttribute(new AttributeLinkedSetIndirect("emailrecipients_list", array("linked_class"=>"lnkEmailRecipientsToActionEmail", "ext_key_to_me"=>"action_id", "ext_key_to_remote"=>"emailrecipients_id", "allowed_values"=>null, "duplicates"=>true, "count_min"=>0, "count_max"=>0, "depends_on"=>array())));
 
 		MetaModel::Init_SetZListItems('details', array('name', 'description', 'status', 'test_recipient', 'from', 'reply_to', /*'to', 'cc', 'bcc',*/ 'subject', 'body', 'importance', 'emailrecipients_list', 'trigger_list')); // Attributes to be displayed for the complete details
-		MetaModel::Init_SetZListItems('list', array('name', 'status', /*'to',*/ 'subject')); // Attributes to be displayed for a list
+		MetaModel::Init_SetZListItems('list', array('name', 'status', 'subject')); // Attributes to be displayed for a list
 		// Search criteria
 		MetaModel::Init_SetZListItems('standard_search', array('name','description', 'status', 'subject')); // Criteria of the std search form
 //		MetaModel::Init_SetZListItems('advanced_search', array('name')); // Criteria of the advanced search form
@@ -200,7 +197,6 @@ EOF
 		}
 		$sOQL = implode(' UNION ', $aEmailRecipientsOQL);
 
-		//$sOQL = $this->Get($sRecipAttCode);
 		if (strlen($sOQL) == '') return '';
 
 		try
