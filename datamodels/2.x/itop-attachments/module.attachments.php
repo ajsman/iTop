@@ -65,6 +65,8 @@ SetupWebPage::AddModule(
 			'allowed_classes' => array('Ticket'), // List of classes for which to manage "Attachments"
 			'position' => 'relations', // Where to display the attachments: relations | properties
 			'preview_max_width' => 290,
+            'save_on_disk' => false, // Set true for save Attachment on disk
+            'root_path_attachments' => '', // Path from ROOT to directory where Attachments will be saved ( Example : /var/www/myfiles/ )
 		),
 	)
 );

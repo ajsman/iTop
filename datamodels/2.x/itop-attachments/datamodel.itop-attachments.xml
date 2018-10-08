@@ -80,6 +80,11 @@
           <is_null_allowed>true</is_null_allowed>
         </field>
         <field id="contents" xsi:type="AttributeBlob"/>
+        <field id="path" xsi:type="AttributeString">
+          <sql>path</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
       </fields>
       <methods>
         <method id="MapContextParam">
@@ -184,6 +189,42 @@
 			}
 		}
 	}]]></code>
+        </method>
+        <method id="Get">
+          <static>false</static>
+          <access>public</access>
+          <type>Overload-DBObject</type>
+          <code><![CDATA[	public function Get()
+          {
+                if ($sAttCode === 'contents') {
+                      $oDoc = parent::Get($sAttCode);
+                      $sFilePath = $this->Get('path');
+                      if ($this->Get('temp_id') || !$sFilePath) return $oDoc;
+                      $sRootPath = MetaModel::GetModuleSetting('itop-attachments', 'root_path_attachments', APPROOT . '/data/attachments/');
+                      if (!file_exists($sFullPath)) {
+
+                          $sImgText = "FILE NOT FOUND. Attachment::" . $this->GetKey();
+                          $iFontSize = 25;
+                          $iImgWidth = (imagefontwidth($iFontSize) * strlen($sImgText)) + 20;
+                          $iImgHeight = 50;
+
+                          ob_start();
+                          $iTextHeight = imagefontheight($iFontSize);
+                          $rImage = imageCreate($iImgWidth, $iImgHeight);
+                          $background_color = imageColorAllocate($rImage, 243, 124, 0);
+                          $text_color = imagecolorallocate($rImage, 255, 255, 255);
+                          imageFilledRectangle($rImage, 0, 0, imageSX($rImage), imageSY($rImage), $background_color);
+                          imagestring($rImage, $iFontSize, 10, ($iImgHeight - $iTextHeight) / 2, $sImgText, $text_color);
+                          imageJpeg($rImage, null, 100);
+                          imageDestroy($rImage);
+                          $sImage = ob_get_clean();
+
+                          return new ormDocument($sImage, 'image/jpeg', 'not_found.jpg');
+                      }
+                      return new ormDocument(file_get_contents($sFullPath), $oDoc->GetMimeType(), $oDoc->GetFileName());
+                }
+                return parent::Get($sAttCode);
+          }]]></code>
         </method>
       </methods>
       <presentation>
